@@ -1000,8 +1000,8 @@ def build_params_dict(section,cfg):
         ## we need to set the global ones since 2016-11
         ##TO-DO: remove Campaign and read acquisitionEra to correct param when alca updates
         params["ProcessingString"] = task1_dict['ProcessingString']
-        params["AcquisitionEra"] = task1_dict['AcquisitionEra']
-        params["Campaign"] = task1_dict['AcquisitionEra']
+        #params["AcquisitionEra"] = task1_dict['AcquisitionEra']
+        #params["Campaign"] = task1_dict['AcquisitionEra']
 
         params['Task1'] = task1_dict
         params['TaskChain'] = 1
@@ -1211,8 +1211,9 @@ def build_parser():
     parser.add_option('--num-cores', help='Number of cores we want to run our workflow',
             default=1, dest='multicore')
 
-    parser.add_option('--acquisition_era', help='Specify AcquisitionEra which defines part the output dataset name',
-            default=1, dest='acquisition_era', default="FAKE") ##we set default non empty as its mandatory since 2016-11
+    parser.add_option('--acquisition-era', help='Specify AcquisitionEra which defines part the output dataset name',
+            default="FAKE", dest='acquisition_era') ##we set default non empty as its mandatory since 2016-11
+            #default=1, dest='acquisition_era', default="FAKE") ##we set default non empty as its mandatory since 2016-11
 
     return parser
 
